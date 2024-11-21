@@ -1,0 +1,17 @@
+
+
+<div class="container">
+    <h1>Register</h1>
+<form action="" #form1="ngForm" (ngSubmit)="regdata(form1.value)">
+    <input class="form-control" type="text" name="first_name" placeholder="firstname" ngModel><br>
+    <input class="form-control" type="text" name="last_name" placeholder="lastname" ngModel><br>
+    <input class="form-control" type="text" name="username" placeholder="username" ngModel><br>
+    <input class="form-control" type="text" name="email" placeholder="email" ngModel><br>
+    <input class="form-control" type="number" name="mobilenumber" placeholder="mobilenumber" ngModel><br>
+    <input type="radio" name="gender" placeholder="gender" value="female" ngModel>female <br>
+
+    <input type="radio" name="gender" placeholder="gender" value="male" ngModel>male <br> <br>
+    <input class="form-control" type="password" placeholder="password" name="password" ngModel> <br>
+    <input type="submit"  class="btn btn-primary">
+</form>
+</div>

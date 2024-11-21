@@ -1,0 +1,107 @@
+<div class="container">
+    <h1>Welcome {{ data["first_name"] }} {{ data["last_name"]  }} 😍</h1>
+
+    <button class="btn btn-primary" (click)="toggleDiv()">Add ToDo</button>
+    <button class="btn btn-dark" (click)="showall()">Show all ToDo</button>
+    <button class="btn btn-success" (click)="showcomplete()">Show all Completed ToDo</button>
+    <button class="btn btn-danger" (click)="showincomplete()">Show all Incomplete ToDo</button>
+
+    <div *ngIf="isDivVisible" class="mb-3">
+    
+        <form action="" #form1="ngForm" (ngSubmit)="addtodo(form1.value)">
+
+            <h1>ADD TASK</h1>
+            
+    
+            <input class="form-control" type="text" name="title" placeholder="todo heading" ngModel><br>
+
+            <input class="form-control" type="text" placeholder="discription" name="discription" ngModel><br>
+
+
+            <input class="btn btn-primary" type="submit">
+
+        </form>
+    </div>
+
+    <div *ngIf="showall1">
+        <h1>ALL TASK</h1>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <!-- <td>ID</td> -->
+                    <td>TITLE</td>
+                    <td>DISCRIPTION</td>
+                    <td>Complete(1)/incomplete(0)</td>
+                    <td>Delete</td>
+                    <td>Update</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of todo">
+                    <!-- <td>{{ i["id"] }}</td> -->
+                    <td>{{ i["title"] }}</td>
+                    <td>{{ i["discription"] }}</td>
+                    <td>{{ i["status"] }}</td>
+                    <td><button class="btn btn-primary" (click)="deletask(i['id'])">Delete</button></td>
+                    <td><button class="btn btn-primary" (click)="update(i['id'])">Update</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="show" class="mb-3">
+        <form action="" #form2="ngForm" (ngSubmit)="updatetodo(form2.value)">
+            
+            
+            <input class="form-control" type="text" name="title"  ngModel [(ngModel)]="d.title"><br>
+
+            <input class="form-control" type="text" name="discription" ngModel [(ngModel)]="d.discription"><br>
+
+            <input type="radio" name="status" value="1" ngModel > complete <br>
+            <input type="radio" name="status" value="0" ngModel > incomplete <br>
+            <br>
+            <input class="btn btn-primary" type="submit">
+
+        </form>
+    
+</div>
+
+
+    <div *ngIf="showcomplete1">
+        <h1>COMPLETED TASK</h1>
+        <table class="table table-warning">
+            <thead>
+                <tr>
+                    <td>TITLE</td>
+                    <td>DISCRIPTION</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of complete">
+                    <td>{{ i["title"] }}</td>
+                    <td>{{ i["discription"] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div *ngIf="showincomplete0">
+        <h1>INCOMPLETED TASK</h1>
+        <table class="table table-secondary">
+            <thead>
+                <tr>
+                    <td>TITLE</td>
+                    <td>DISCRIPTION</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let i of incomplete">
+                    <td>{{ i["title"] }}</td>
+                    <td>{{ i["discription"] }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</div>

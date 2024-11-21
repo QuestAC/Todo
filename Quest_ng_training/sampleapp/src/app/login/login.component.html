@@ -1,0 +1,20 @@
+<div class="container">
+    <h1>login</h1>
+
+    <button (click)="changeLanguage('en')">English</button>
+    <!-- <button (click)="changeLanguage('fr')">French</button> -->
+    <button (click)="changeLanguage('ml')">Malayalam</button>
+    <button (click)="changeLanguage('hi')">Hindi</button>
+
+    <form action="" #form1="ngForm" (ngSubmit)="log123(form1.value)">
+
+        <label for="">{{ 'UserName' | translate }}</label>
+        <input class="form-control" type="text" name="username" placeholder="{{ 'UserName' | translate }}" ngModel><br>
+
+        <label for="">{{ 'password' | translate }}</label>
+        <input class="form-control" type="password" placeholder="{{ 'password' | translate }}" name="password" ngModel><br>
+
+        <input type="submit" class="btn btn-primary">
+
+    </form>
+</div>
